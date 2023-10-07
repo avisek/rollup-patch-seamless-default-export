@@ -1,0 +1,78 @@
+diff --git a/node_modules/rollup/dist/es/shared/node-entry.js b/node_modules/rollup/dist/es/shared/node-entry.js
+index 3533549..1ebb7b1 100644
+--- a/node_modules/rollup/dist/es/shared/node-entry.js
++++ b/node_modules/rollup/dist/es/shared/node-entry.js
+@@ -14540,7 +14540,12 @@ function getExportBlock$1(exports, dependencies, namedExportsMode, interop, snip
+             }
+         }
+     }
++    let defaultExportLocal = null
+     for (const { exported, local } of exports) {
++        if (exported === 'default' && exports.length > 1) {
++            defaultExportLocal = local
++            continue
++        }
+         const lhs = `exports${getPropertyAccess(exported)}`;
+         const rhs = local;
+         if (lhs !== rhs) {
+@@ -14549,6 +14554,12 @@ function getExportBlock$1(exports, dependencies, namedExportsMode, interop, snip
+             exportBlock += `${lhs}${_}=${_}${rhs};`;
+         }
+     }
++    if (defaultExportLocal && exports.length > 1) {
++        exportBlock =
++            `exports${_}=${_}module.exports${_}=${_}${defaultExportLocal};${n}` +
++            `exports.default${_}=${_}${defaultExportLocal};${n}` +
++            `${exportBlock}`
++    }
+     for (const { name, reexports } of dependencies) {
+         if (reexports && namedExportsMode) {
+             for (const specifier of reexports) {
+@@ -15502,7 +15513,7 @@ function getExportMode(chunk, { exports: exportMode, name, format }, facadeModul
+         }
+         else {
+             if (format !== 'es' && format !== 'system' && exportKeys.includes('default')) {
+-                log(LOGLEVEL_WARN, logMixedExport(facadeModuleId, name));
++                // log(LOGLEVEL_WARN, logMixedExport(facadeModuleId, name));
+             }
+             exportMode = 'named';
+         }
+diff --git a/node_modules/rollup/dist/shared/rollup.js b/node_modules/rollup/dist/shared/rollup.js
+index 204e8a7..8cfd404 100644
+--- a/node_modules/rollup/dist/shared/rollup.js
++++ b/node_modules/rollup/dist/shared/rollup.js
+@@ -16032,7 +16032,12 @@ function getExportBlock$1(exports, dependencies, namedExportsMode, interop, snip
+             }
+         }
+     }
++    let defaultExportLocal = null
+     for (const { exported, local } of exports) {
++        if (exported === 'default' && exports.length > 1) {
++            defaultExportLocal = local
++            continue
++        }
+         const lhs = `exports${getPropertyAccess(exported)}`;
+         const rhs = local;
+         if (lhs !== rhs) {
+@@ -16041,6 +16046,12 @@ function getExportBlock$1(exports, dependencies, namedExportsMode, interop, snip
+             exportBlock += `${lhs}${_}=${_}${rhs};`;
+         }
+     }
++    if (defaultExportLocal && exports.length > 1) {
++        exportBlock =
++            `exports${_}=${_}module.exports${_}=${_}${defaultExportLocal};${n}` +
++            `exports.default${_}=${_}${defaultExportLocal};${n}` +
++            `${exportBlock}`
++    }
+     for (const { name, reexports } of dependencies) {
+         if (reexports && namedExportsMode) {
+             for (const specifier of reexports) {
+@@ -16994,7 +17005,7 @@ function getExportMode(chunk, { exports: exportMode, name, format }, facadeModul
+         }
+         else {
+             if (format !== 'es' && format !== 'system' && exportKeys.includes('default')) {
+-                log(LOGLEVEL_WARN, logMixedExport(facadeModuleId, name));
++                // log(LOGLEVEL_WARN, logMixedExport(facadeModuleId, name));
+             }
+             exportMode = 'named';
+         }

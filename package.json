@@ -1,0 +1,21 @@
+{
+  "name": "rollup-patch-seamless-default-export",
+  "version": "0.0.0",
+  "description": "Rollup patch for adding `module.exports = defaultExport`",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test": "node test",
+    "postinstall": "patch-package"
+  },
+  "devDependencies": {
+    "patch-package": "^8.0.0",
+    "rollup": "^3.29.4",
+    "self": "./"
+  }
+}
