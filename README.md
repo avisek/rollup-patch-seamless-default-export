@@ -40,7 +40,7 @@ const lib = require('your-library').default // <-- it looks bad
 
 Read [this](https://stackoverflow.com/questions/58246998/mixing-default-and-named-exports-with-rollup) and [this thread](https://github.com/rollup/rollup/issues/1961) for more context.
 
-## How to use the patch? <sub><sup>(</sub></sup>[<sub><sup>npm version</sub></sup>](https://github.com/avisek/rollup-patch-seamless-default-export/tree/npm)<sub><sup>)</sub></sup>
+## How to use the patch? <sub><sup>(</sub></sup>[<sub><sup>npm version</sub></sup>](https://github.com/avisek/rollup-patch-seamless-default-export/tree/npm#how-to-use-the-patch-npm-version)<sub><sup>)</sub></sup>
 
 Download and include the [patch file](https://github.com/avisek/rollup-patch-seamless-default-export/blob/pnpm/patches/rollup@3.29.4.patch)
 
