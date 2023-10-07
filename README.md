@@ -40,7 +40,7 @@ const lib = require('your-library').default // <-- it looks bad
 
 Read [this](https://stackoverflow.com/questions/58246998/mixing-default-and-named-exports-with-rollup) and [this thread](https://github.com/rollup/rollup/issues/1961) for more context.
 
-## How to use the patch? <sub><sup><sub><sup>([pnpm version](https://github.com/avisek/rollup-patch-seamless-default-export/tree/pnpm))</sup></sub></sup></sub>
+## How to use the patch? <sub><sup>(</sub></sup>[<sub><sup>pnpm version</sub></sup>](https://github.com/avisek/rollup-patch-seamless-default-export/tree/pnpm)<sub><sup>)</sub></sup>
 
 Download and include the [patch file](https://github.com/avisek/rollup-patch-seamless-default-export/blob/npm/patches/rollup+3.29.4.patch)
 
@@ -87,4 +87,4 @@ It modifies `rollup`'s output like this,
 
 ## Caveats
 
-You can not use primitive type values (e.g. `string`, `number`, `boolean`) as your `defaut` export. If you do then your `named` exports will not work.
+You can not use primitive type values (e.g. `string`, `number`, `boolean`) as your `defaut` export. If you do, then your `named` exports will not work.
