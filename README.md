@@ -88,4 +88,4 @@ It modifies `rollup`'s output like this,
 
 ## Caveats
 
-You can not use primitive type values (e.g. `string`, `number`, `boolean`) as your `defaut` export. If you do then your `named` exports will not work.
+You can not use primitive type values (e.g. `string`, `number`, `boolean`) as your `defaut` export. If you do, then your `named` exports will not work.
