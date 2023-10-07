@@ -1,7 +1,7 @@
-diff --git a/node_modules/rollup/dist/es/shared/node-entry.js b/node_modules/rollup/dist/es/shared/node-entry.js
-index 3533549..1ebb7b1 100644
---- a/node_modules/rollup/dist/es/shared/node-entry.js
-+++ b/node_modules/rollup/dist/es/shared/node-entry.js
+diff --git a/dist/es/shared/node-entry.js b/dist/es/shared/node-entry.js
+index 3533549043eb1d590ea59270e278e63965b45cce..1ebb7b1843138a72fface7e92dd6090905e3d8fc 100644
+--- a/dist/es/shared/node-entry.js
++++ b/dist/es/shared/node-entry.js
 @@ -14540,7 +14540,12 @@ function getExportBlock$1(exports, dependencies, namedExportsMode, interop, snip
              }
          }
@@ -37,10 +37,10 @@ index 3533549..1ebb7b1 100644
              }
              exportMode = 'named';
          }
-diff --git a/node_modules/rollup/dist/shared/rollup.js b/node_modules/rollup/dist/shared/rollup.js
-index 204e8a7..8cfd404 100644
---- a/node_modules/rollup/dist/shared/rollup.js
-+++ b/node_modules/rollup/dist/shared/rollup.js
+diff --git a/dist/shared/rollup.js b/dist/shared/rollup.js
+index 204e8a7725a3e1fc12a592d2bc36d3d43e967910..8cfd4047ae9b8d859e339cee7455334c4c061060 100644
+--- a/dist/shared/rollup.js
++++ b/dist/shared/rollup.js
 @@ -16032,7 +16032,12 @@ function getExportBlock$1(exports, dependencies, namedExportsMode, interop, snip
              }
          }

@@ -10,12 +10,15 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "test": "node test",
-    "postinstall": "patch-package"
+    "test": "node test"
   },
   "devDependencies": {
-    "patch-package": "^8.0.0",
     "rollup": "^3.29.4",
-    "self": "./"
+    "self": "link:."
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "rollup@3.29.4": "patches/rollup@3.29.4.patch"
+    }
   }
 }
